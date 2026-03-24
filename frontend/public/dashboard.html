@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>නන්දනි වෙළදසැල &mdash; Dashboard</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
     <div class="topbar">
@@ -15,7 +15,11 @@
                 <div class="brand-subtitle">Smart Invoice Dashboard</div>
             </div>
         </div>
-        <div class="topbar-meta">Dashboard</div>
+        <div class="topbar-actions">
+            <a href="/login">Sign in</a>
+            <span class="topbar-sep" aria-hidden="true">·</span>
+            <a href="/register">Register</a>
+        </div>
     </div>
 
     <div class="app-shell">
@@ -26,7 +30,6 @@
                 <div class="pill-tabs">
                     <button class="pill-tab pill-tab-active">New Invoice</button>
                     <button class="pill-tab">History</button>
-                      <button class="pill-tab">History</button>
                     <button class="pill-tab">Reports</button>
                 </div>
                 <div class="stats">
@@ -149,7 +152,7 @@
                         <div class="footer-left">Last saved: Today at 4:30 PM</div>
                         <div class="footer-actions">
                             <button type="button" class="btn btn-ghost">Cancel</button>
-                            <button type="button" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary">
                                 <span class="btn-dot"></span>
                                 <span>Processing Invoice</span>
                             </button>
@@ -160,6 +163,6 @@
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>

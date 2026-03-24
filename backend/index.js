@@ -1,21 +1,30 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
+import { connectDb } from './config/db.js';
+import authRoutes from './routes/auth.js';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// In-memory invoice store (for demo); replace with a database later
 const invoices = new Map();
 let lastId = 1;
 
-app.use(cors());
+const corsOrigin = process.env.FRONTEND_ORIGIN || 'http://localhost:5173';
+app.use(
+  cors({
+    origin: corsOrigin,
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.get('/', (req, res) => {
   res.json({ message: 'නන්දනි වෙළදසැල API is running' });
 });
 
-// Create a new invoice
+app.use('/api/auth', authRoutes);
+
 app.post('/api/invoices', (req, res) => {
   const id = String(lastId++);
   const invoice = { id, createdAt: new Date().toISOString(), ...req.body };
@@ -23,7 +32,6 @@ app.post('/api/invoices', (req, res) => {
   res.status(201).json(invoice);
 });
 
-// Get a single invoice
 app.get('/api/invoices/:id', (req, res) => {
   const invoice = invoices.get(req.params.id);
   if (!invoice) {
@@ -32,11 +40,22 @@ app.get('/api/invoices/:id', (req, res) => {
   res.json(invoice);
 });
 
-// List all invoices
 app.get('/api/invoices', (req, res) => {
   res.json([...invoices.values()]);
 });
 
-app.listen(PORT, () => {
-  console.log(`API listening on http://localhost:${PORT}`);
-});
+async function start() {
+  try {
+    await connectDb();
+    console.log('Connected to MongoDB');
+  } catch (err) {
+    console.error('Database connection failed:', err.message);
+    process.exit(1);
+  }
+
+  app.listen(PORT, () => {
+    console.log(`API listening on http://localhost:${PORT}`);
+  });
+}
+
+start();
