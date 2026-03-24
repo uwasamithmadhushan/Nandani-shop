@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { fetchAdminUsers, fetchMe, getToken, setToken } from '../api';
-import './Dashboard.css';
-import './Profile.css';
+import { fetchAdminUsers, fetchMe, getToken, setToken } from './api';
+import './pages/Dashboard.css';
+import './pages/Profile.css';
 import './AdminDashboard.css';
 
 function formatDate(iso) {

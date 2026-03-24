@@ -37,3 +37,7 @@ export function login(body) {
 export function fetchMe() {
   return request('/api/auth/me');
 }
+
+export function fetchAdminUsers() {
+  return request('/api/admin/users');
+}

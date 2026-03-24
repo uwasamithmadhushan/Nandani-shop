@@ -75,6 +75,11 @@ export default function Home() {
         </div>
         <p className="auth-muted">Your session token is stored in the browser.</p>
         <div className="auth-actions">
+          {user.role === 'admin' && (
+            <Link className="auth-link-btn auth-link-btn-secondary" to="/admin">
+              Admin dashboard
+            </Link>
+          )}
           <button type="button" className="auth-link-btn auth-link-btn-ghost" onClick={logout}>
             Sign out
           </button>
