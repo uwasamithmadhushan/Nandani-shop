@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { fetchMe, getToken, setToken } from '../api';
 import './Dashboard.css';
 
@@ -32,11 +32,6 @@ export default function Dashboard() {
       })
       .finally(() => setLoading(false));
   }, [navigate]);
-
-  function logout() {
-    setToken(null);
-    navigate('/login', { replace: true });
-  }
 
   async function handleInvoiceSubmit(e) {
     e.preventDefault();
@@ -101,16 +96,15 @@ export default function Dashboard() {
             <div className="brand-subtitle">Smart Invoice Dashboard</div>
           </div>
         </div>
-        <div className="topbar-actions" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span className="topbar-meta" style={{ margin: 0 }}>
-            {displayName} · {user.email}
-          </span>
-          <span className="topbar-sep" aria-hidden="true">
-            ·
-          </span>
-          <button type="button" className="link-button" onClick={logout} style={{ border: 'none', background: 'none', cursor: 'pointer', padding: 0 }}>
-            Sign out
-          </button>
+        <div className="topbar-actions">
+          <Link to="/profile" className="profile-menu-trigger" title="View profile">
+            <span className="profile-menu-avatar">{initials}</span>
+            <span className="profile-menu-text">
+              <span className="profile-menu-label">Profile</span>
+              <span className="profile-menu-name">{displayName}</span>
+              <span className="profile-menu-email">{user.email}</span>
+            </span>
+          </Link>
         </div>
       </div>
 
