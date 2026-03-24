@@ -80,6 +80,28 @@ body {
     color: var(--text-muted);
 }
 
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.topbar-actions a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.topbar-actions a:hover {
+    color: #4f46e5;
+}
+
+.topbar-sep {
+    color: var(--border-subtle);
+    user-select: none;
+}
+
 .app-shell {
     display: grid;
     grid-template-columns: 72px minmax(0, 1fr);

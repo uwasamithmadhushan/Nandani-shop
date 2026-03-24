@@ -5,10 +5,15 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "node --watch index.js"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.3.1",
     "express": "^4.19.0",
-    "cors": "^2.8.5"
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.3.2"
   }
 }

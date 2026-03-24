@@ -1,0 +1,10 @@
+{
+  "name": "nandani-shop",
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n backend,frontend -c cyan,magenta \"npm run start --prefix backend\" \"npm run start --prefix frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
