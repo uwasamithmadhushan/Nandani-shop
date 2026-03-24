@@ -1,5 +1,12 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import express from 'express';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// Repo root `.env`, then `backend/.env` (backend wins if both set the same key)
+dotenv.config({ path: path.resolve(__dirname, '..', '.env') });
+dotenv.config({ path: path.resolve(__dirname, '.env'), override: true });
 import cors from 'cors';
 import { connectDb } from './config/db.js';
 import authRoutes from './routes/auth.js';

@@ -17,7 +17,7 @@ export default function Register() {
     try {
       const data = await register({ name, email, password });
       setToken(data.token);
-      navigate('/', { replace: true });
+      navigate('/dashboard', { replace: true });
     } catch (err) {
       setError(err.message || 'Registration failed');
     } finally {

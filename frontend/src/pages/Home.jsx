@@ -48,9 +48,6 @@ export default function Home() {
           </div>
           {error && <div className="auth-error">{error}</div>}
           <div className="auth-actions">
-            <a className="auth-link-btn" href="/dashboard.html">
-              Invoice dashboard
-            </a>
             <Link className="auth-link-btn auth-link-btn-secondary" to="/login">
               Sign in
             </Link>
@@ -76,14 +73,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <p className="auth-muted">
-          Your session token is stored in the browser. Open the invoice dashboard on the same dev server (backend on
-          port 4000).
-        </p>
+        <p className="auth-muted">Your session token is stored in the browser.</p>
         <div className="auth-actions">
-          <a className="auth-link-btn" href="/dashboard.html">
-            Invoice dashboard
-          </a>
           <button type="button" className="auth-link-btn auth-link-btn-ghost" onClick={logout}>
             Sign out
           </button>
