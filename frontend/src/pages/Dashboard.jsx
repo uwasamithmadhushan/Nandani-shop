@@ -245,7 +245,7 @@ export default function Dashboard() {
                   <span>Add Discount</span>
                   <div className="select select-sm">
                     <select defaultValue="Summer Sale 10th">
-                      <option>Summer Sale 10th</option>
+                      <option>Summer Sale 11th</option>
                       <option>New Customer</option>
                     </select>
                   </div>
