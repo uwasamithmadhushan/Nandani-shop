@@ -41,3 +41,11 @@ export function fetchMe() {
 export function fetchAdminUsers() {
   return request('/api/admin/users');
 }
+
+export function fetchProducts() {
+  return request('/api/products');
+}
+
+export function createProduct(body) {
+  return request('/api/products', { method: 'POST', body: JSON.stringify(body) });
+}

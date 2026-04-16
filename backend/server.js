@@ -7,6 +7,7 @@ import bcrypt from 'bcryptjs';
 import mongoose from 'mongoose';
 import authRoutes from './routes/auth.js';
 import adminRoutes from './routes/admin.js';
+import productRoutes from './routes/products.js';
 import User from './models/User.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -37,6 +38,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/products', productRoutes);
 
 app.post('/api/invoices', (req, res) => {
   const id = String(lastId++);
