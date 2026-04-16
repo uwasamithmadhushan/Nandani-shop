@@ -97,6 +97,9 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="topbar-actions">
+          <Link to="/products/new" className="dashboard-topbar-button">
+            + Add Product
+          </Link>
           <Link to="/profile" className="profile-menu-trigger" title="View profile">
             <span className="profile-menu-avatar">{initials}</span>
             <span className="profile-menu-text">
@@ -200,7 +203,12 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              <h2 className="section-title">Product</h2>
+              <div className="section-title-row">
+                <h2 className="section-title">Product</h2>
+                <Link to="/products/new" className="link-button link-button-strong">
+                  + Add Product
+                </Link>
+              </div>
 
               <div className="product-table">
                 <div className="product-row">
